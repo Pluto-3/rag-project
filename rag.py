@@ -39,8 +39,9 @@ Question:
 Answer:"""
 
     response = ollama.chat(
-        model="tinyllama",
-        messages=[{"role": "user", "content": prompt}]
+        model="llama3.2:3b",
+        messages=[{"role": "user", "content": prompt}],
+        options={"num_ctx": 2048}
     )
 
     answer = response["message"]["content"]
