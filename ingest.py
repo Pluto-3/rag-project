@@ -1,6 +1,5 @@
 import fitz
 
-pdf_path = "sample.pdf"
 
 def extract_text(filepath):
     doc = fitz.open(filepath)
@@ -15,8 +14,9 @@ def extract_text(filepath):
     doc.close()
     return full_text.strip()
 
-text = extract_text(pdf_path)
 
-print(f"Extracted {len(text)} characters")
-print("\n--- Preview (first 500 chars) ---")
-print(text[:500])
+if __name__ == "__main__":
+    text = extract_text("sample.pdf")
+    print(f"Extracted {len(text)} characters")
+    print("\n--- Preview (first 500 chars) ---")
+    print(text[:500])

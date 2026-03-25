@@ -4,14 +4,15 @@ from sentence_transformers import SentenceTransformer
 from ingest import extract_text
 from chunker import chunk_text
 
+
 model = SentenceTransformer("all-MiniLM-L6-v2", device="cpu")
 client = chromadb.PersistentClient(path="./chroma_db")
 collection = client.get_or_create_collection(name="documents")
 
+
 def embed_document(pdf_path):
     filename = os.path.basename(pdf_path)
 
-    # Check if this document is already embedded
     existing = collection.get(where={"source": filename})
     if existing["ids"]:
         print(f"'{filename}' already embedded ({len(existing['ids'])} chunks). Skipping.")
@@ -39,7 +40,6 @@ def embed_document(pdf_path):
 
 
 if __name__ == "__main__":
-    # Embed all PDFs in current directory
     pdf_files = [f for f in os.listdir(".") if f.endswith(".pdf")]
 
     if not pdf_files:

@@ -11,6 +11,7 @@ def chunk_text(text, chunk_size=400, overlap=75):
 
     return chunks
 
+
 if __name__ == "__main__":
     from ingest import extract_text
 

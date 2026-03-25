@@ -1,10 +1,11 @@
 import chromadb
 from sentence_transformers import SentenceTransformer
 
-model = SentenceTransformer("all-MiniLM-L6-v2", device="cpu")
 
+model = SentenceTransformer("all-MiniLM-L6-v2", device="cpu")
 client = chromadb.PersistentClient(path="./chroma_db")
 collection = client.get_or_create_collection(name="documents")
+
 
 def retrieve(query, k=3):
     query_embedding = model.encode(query).tolist()
@@ -27,7 +28,7 @@ if __name__ == "__main__":
     print(f"Query: {query}\n")
     results = retrieve(query)
 
-    for i, (chunk, distance) in enumerate(results):
-        print(f"--- Result {i+1} | chunk_index: {meta['chunk_index']} | (distance: {distance:.4f}) ---")
+    for i, (chunk, distance, meta) in enumerate(results):
+        print(f"--- Result {i+1} | chunk_index: {meta['chunk_index']} | distance: {distance:.4f} ---")
         print(chunk[:300])
         print()
