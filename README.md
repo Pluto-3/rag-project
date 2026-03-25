@@ -1,14 +1,14 @@
 # rag-project
 
-A local Retrieval-Augmented Generation (RAG) system built from scratch. Ingests PDF documents, stores them as semantic vectors, and answers questions grounded in your documents — entirely offline, no API costs.
+A local Retrieval-Augmented Generation (RAG) system built from scratch. Ingests PDF documents, stores them as semantic vectors, and answers questions grounded in your documents, entirely offline, no API costs.
 
 ## Stack
 
 - **Python 3.10+**
-- **Ollama** — local LLM inference (`llama3.2:3b`)
-- **PyMuPDF (fitz)** — PDF text extraction
-- **sentence-transformers** — local embeddings (`all-MiniLM-L6-v2`)
-- **ChromaDB** — persistent vector database
+- **Ollama** - local LLM inference (`llama3.2:3b`)
+- **PyMuPDF (fitz)** - PDF text extraction
+- **sentence-transformers** - local embeddings (`all-MiniLM-L6-v2`)
+- **ChromaDB** - persistent vector database
 
 ## Project Structure
 
@@ -42,7 +42,7 @@ ollama pull llama3.2:3b
 **1. Start Ollama (required every session)**
 
 ```bash
-# Windows CMD — set these before ollama serve
+# Windows CMD - set these before ollama serve
 set CUDA_VISIBLE_DEVICES=-1
 set OLLAMA_NUM_PARALLEL=1
 set OLLAMA_MAX_LOADED_MODELS=1
