@@ -99,7 +99,7 @@ if __name__ == "__main__":
 
         print(f"\n--- Sources used ---")
         for i, (chunk, distance, meta) in enumerate(sources):
-            print(f"[{i+1}] chunk_index: {meta['chunk_index']} | distance: {distance:.4f}")
+            print(f"[{i+1}] source: {meta['source']} | chunk: {meta['chunk_index']} | distance: {distance:.4f}")
             print(f"    {chunk[:150]}...")
 
         print()
